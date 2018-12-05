@@ -13,6 +13,8 @@ import android.widget.Toast;
 public class ThirdActivity extends AppCompatActivity {
     int firstClick = -1;
     int secondClick = -1;
+    int position1 = -1;
+    int position2 = -1;
 
 
     @Override
@@ -30,11 +32,12 @@ public class ThirdActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 if (firstClick == -1) {
-                    Toast.makeText(ThirdActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                    position1 = position;
                     firstClick = ImageAdapter.mThumbIds[position];
                 } else if(secondClick == -1) {
+                    position2 = position;
                     secondClick = ImageAdapter.mThumbIds[position];
-                    switchImages(firstClick, secondClick);
+                    switchImages();
                     firstClick = -1;
                     secondClick = -1;
                 }
@@ -42,9 +45,12 @@ public class ThirdActivity extends AppCompatActivity {
         });
 
     }
-    public void switchImages(int image1, int image2) {
-        Toast.makeText(ThirdActivity.this, firstClick + " " + secondClick,
-                Toast.LENGTH_SHORT).show();
+    public void switchImages() {
+        int temp = firstClick;
+        ImageAdapter.setItemId(position1, secondClick);
+        ImageAdapter.setItemId(position2, temp);
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(new ImageAdapter(this));
     }
 
 }
