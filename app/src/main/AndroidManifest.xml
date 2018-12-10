@@ -3,8 +3,8 @@
     package="com.example.yoonkijin.mp6">
 
     <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera2.full" />
 
 
     <application
@@ -24,6 +24,8 @@
 
 
         <activity android:name=".SecondActivity" />
+
+        <activity android:name=".CaptureImage" />
 
         <meta-data
             android:name="preloaded_fonts"
