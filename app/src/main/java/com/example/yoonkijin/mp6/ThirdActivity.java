@@ -26,8 +26,8 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_third);
         Collections.shuffle(Arrays.asList(ImageAdapter.mThumbIds));
         GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setVerticalSpacing(100);
         gridview.setAdapter(new ImageAdapter(this));
-        gridview.getLayoutParams().height = 300;
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {

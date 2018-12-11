@@ -62,7 +62,7 @@ public class CaptureImage extends AppCompatActivity {
     private ImageReader imageReader;
 
     //Save to FILE
-    public static File file;
+    private static File file;
     private static final int REQUEST_CAMERA_PERMISSION = 200;
     private boolean mFlashSupported;
     private Handler mBackgroundHandler;
