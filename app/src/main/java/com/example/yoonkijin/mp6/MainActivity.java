@@ -13,12 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
-
-
-
         //playButton - leads to SecondActivity screen - Camera page
         Button playButton = (Button) findViewById(R.id.playButton);
 
