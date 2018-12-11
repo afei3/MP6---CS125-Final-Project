@@ -47,12 +47,29 @@ public class ImageAdapter extends BaseAdapter {
         return imageView;
     }
 
+    public static String[] imageNames = {
+        "aaa.png", "bbb.png",
+        "ccc.png", "ddd.png",
+        "eee.png", "fff.png",
+        "ggg.png", "hhh.png",
+        "iii.png"
+
+    };
+
     // references to our images
     public static Integer[] mThumbIds = {
             R.drawable.aaa, R.drawable.bbb,
             R.drawable.ccc, R.drawable.ddd,
             R.drawable.eee, R.drawable.fff,
             R.drawable.ggg, R.drawable.hhh,
+            R.drawable.iii
+    };
+
+    public static Integer[] solved = {
+            R.drawable.eee, R.drawable.hhh,
+            R.drawable.ggg, R.drawable.ddd,
+            R.drawable.aaa, R.drawable.fff,
+            R.drawable.ccc, R.drawable.bbb,
             R.drawable.iii
     };
 

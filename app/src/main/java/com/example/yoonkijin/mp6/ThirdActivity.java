@@ -9,6 +9,9 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 
 public class ThirdActivity extends AppCompatActivity {
     int firstClick = -1;
@@ -21,7 +24,7 @@ public class ThirdActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
-
+        Collections.shuffle(Arrays.asList(ImageAdapter.mThumbIds));
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
         gridview.getLayoutParams().height = 300;
@@ -48,6 +51,15 @@ public class ThirdActivity extends AppCompatActivity {
         ImageAdapter.setItemId(position2, temp);
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
+        boolean isSolved = true;
+        for (int i = 0; i < ImageAdapter.mThumbIds.length; i++) {
+            if (!ImageAdapter.mThumbIds[i].equals(ImageAdapter.solved[i])) {
+                isSolved = false;
+            }
+        }
+        if (isSolved) {
+            Toast.makeText(ThirdActivity.this,"You solved the puzzle", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
