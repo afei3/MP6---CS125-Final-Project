@@ -42,7 +42,7 @@ public class SecondActivity extends AppCompatActivity {
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent captureImage = new Intent(getApplicationContext(), CaptureImage.class);
+                Intent captureImage = new Intent(getApplicationContext(), ThirdActivity.class);
                 startActivity(captureImage);
 
             }

@@ -655,6 +655,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable original
 drawable puzzlepic
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -665,6 +666,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id Timer
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -738,6 +740,7 @@ id imageView5
 id info
 id invisible
 id italic
+id ivPreview
 id left
 id line1
 id line3
@@ -1301,3 +1304,4 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml fileprovider
