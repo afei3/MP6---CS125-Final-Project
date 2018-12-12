@@ -130,11 +130,13 @@ public class ThirdActivity extends AppCompatActivity {
     DialogInterface.OnClickListener dialogClickListener = (dialog, which) -> {
         switch (which){
             case DialogInterface.BUTTON_POSITIVE:
-                Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+                break;
             case DialogInterface.BUTTON_NEGATIVE:
                 Intent restart = new Intent(getApplicationContext(), ThirdActivity.class);
                 startActivity(restart);
+                break;
         }
     };
 
