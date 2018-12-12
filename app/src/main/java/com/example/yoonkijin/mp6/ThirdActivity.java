@@ -9,11 +9,22 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,7 +32,11 @@ import java.util.Collections;
 
 public class ThirdActivity extends AppCompatActivity {
     // Instantiate the RequestQueue.
-    String url ="http://www.google.com";
+    String url;
+    RequestQueue queue;
+
+    private String TAG = "MyTag";
+    RequestQueue mRequestQueue;
 
     final int MSG_START_TIMER = 0;
     final int MSG_STOP_TIMER = 1;
@@ -58,7 +73,6 @@ public class ThirdActivity extends AppCompatActivity {
         }
     };
 
-    int counter = 0;
     int firstClick = -1;
     int secondClick = -1;
     int position1 = -1;
@@ -72,6 +86,7 @@ public class ThirdActivity extends AppCompatActivity {
         mHandler.sendEmptyMessage(MSG_START_TIMER);
         mTextView = (TextView) findViewById(R.id.Timer);
         Collections.shuffle(Arrays.asList(ImageAdapter.mThumbIds));
+        queue = Volley.newRequestQueue(this);
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setVerticalSpacing(85);
         gridview.setAdapter(new ImageAdapter(this));
@@ -96,7 +111,6 @@ public class ThirdActivity extends AppCompatActivity {
         int temp = firstClick;
         ImageAdapter.setItemId(position1, secondClick);
         ImageAdapter.setItemId(position2, temp);
-        counter++;
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
         boolean isSolved = true;
@@ -107,11 +121,9 @@ public class ThirdActivity extends AppCompatActivity {
         }
         if (isSolved) {
             mHandler.sendEmptyMessage(MSG_STOP_TIMER);
-            AlertDialog.Builder builder = new AlertDialog.Builder(ThirdActivity.this);
-            builder.setMessage("You solved the puzzle in " + timer.getElapsedTimeSecs() + " seconds!")
-                    .setPositiveButton("Go Back", dialogClickListener)
-                    .setNegativeButton("No", dialogClickListener).show();
-            Toast.makeText(ThirdActivity.this,"You solved the puzzle", Toast.LENGTH_SHORT).show();
+            long time = timer.getElapsedTimeSecs();
+            startAPICall(time);
+
         }
     }
 
@@ -121,8 +133,40 @@ public class ThirdActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
                 startActivity(intent);
             case DialogInterface.BUTTON_NEGATIVE:
-                break;
+                Intent restart = new Intent(getApplicationContext(), ThirdActivity.class);
+                startActivity(restart);
         }
     };
 
+    private void showDialog(Long time) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ThirdActivity.this);
+        builder.setMessage("You solved the puzzle in " + String.valueOf(time) + " seconds!\n" +
+                "Here is a fact about " + String.valueOf(time) + "\n" + TAG)
+                .setPositiveButton("Go Back", dialogClickListener)
+                .setNegativeButton("Replay", dialogClickListener).show();
+    }
+
+    private void startAPICall(long time) {
+        try {
+            StringRequest jsonObjectRequest = new StringRequest(
+                    Request.Method.GET,
+                    "http://numbersapi.com/" + time,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(final String response) {
+                            Log.d(TAG, response);
+                            TAG = response;
+                            showDialog(time);
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(final VolleyError error) {
+                    Log.w(TAG, error.toString());
+                }
+            });
+            queue.add(jsonObjectRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
