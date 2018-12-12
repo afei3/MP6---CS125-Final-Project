@@ -58,7 +58,7 @@ public class ThirdActivity extends AppCompatActivity {
                     break;
 
                 case MSG_UPDATE_TIMER:
-                    mTextView.setText(""+ timer.getElapsedTime());
+                    mTextView.setText(timer.getElapsedTimeSecs() + "."+ timer.getElapsedTime() % 1000);
                     mHandler.sendEmptyMessageDelayed(MSG_UPDATE_TIMER,REFRESH_RATE); //text view is updated every second,
                     break;                                  //though the timer is still running
                 case MSG_STOP_TIMER:

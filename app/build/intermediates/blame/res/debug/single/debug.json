@@ -1316,10 +1316,6 @@
         "source": "C:\\Users\\ayfei\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\2315da72839dac0d9f14b042290c36bd\\res\\drawable-xxhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\ayfei\\MP6-20181204T182209Z-001\\MP6\\MP6\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_capture.xml.flat",
-        "source": "C:\\Users\\ayfei\\MP6-20181204T182209Z-001\\MP6\\MP6\\app\\src\\main\\res\\layout\\activity_capture.xml"
-    },
-    {
         "merged": "C:\\Users\\ayfei\\MP6-20181204T182209Z-001\\MP6\\MP6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\ayfei\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\2315da72839dac0d9f14b042290c36bd\\res\\drawable-mdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },

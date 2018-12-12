@@ -696,7 +696,6 @@ id barrier
 id beginning
 id blocking
 id bottom
-id btnCapture
 id buttonPanel
 id cameraButton
 id center
@@ -740,7 +739,6 @@ id imageView5
 id info
 id invisible
 id italic
-id ivPreview
 id left
 id line1
 id line3
@@ -851,7 +849,6 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_capture
 layout activity_main
 layout activity_second
 layout activity_third

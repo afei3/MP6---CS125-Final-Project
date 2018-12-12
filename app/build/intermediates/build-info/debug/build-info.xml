@@ -2,29 +2,29 @@
 <instant-run
     abi="x86_64,x86"
     api-level="28"
-    build-mode="COLD"
+    build-mode="HOT_WARM"
     density="560dpi"
     format="10"
     plugin-version="3.2.1"
-    timestamp="1544649353823"
+    timestamp="1544651169116"
     token="3330203499248192669"
-    verifier="SYNTHETIC_CONSTRUCTOR_CHANGE" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="706" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="72" />
+        duration="0" />
     <task
         name="verifier"
-        duration="13" />
+        duration="0" />
 
     <artifact
-        location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+        location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
         type="SPLIT" />
 
     <build
@@ -73,10 +73,45 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1544649353823"
-        verifier="SYNTHETIC_CONSTRUCTOR_CHANGE" >
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1544650609646"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
         <artifact
             location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1544651040369"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\builds\debug\1544651040369\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        build-mode="HOT_WARM"
+        timestamp="1544651169116"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\ayfei\MP6-20181204T182209Z-001\MP6\MP6\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
     </build>
 
